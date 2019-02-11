@@ -1,0 +1,185 @@
+@import '~semantic-ui-css/semantic.min.css';
+
+.icon {
+     transition: transform 0.2s;
+     &:hover {
+          transform: scale(1.5);
+     }
+}
+
+.text-center {
+     text-align: center;
+}
+
+.text-left {
+     text-align: left;
+}
+
+.step-button {
+     cursor: pointer;
+}
+
+.pancan-purple {
+     color: #490e6f !important;
+}
+
+.wpcc-purple {
+     color: #983694 !important;
+}
+
+.theme-selector.active {
+     h4 {
+          box-shadow: 0px 2px 0px 0px #888888;
+          padding-bottom: 2px;
+     }
+}
+
+.message-type {
+     width: 100%;
+}
+
+.paddingTop {
+     padding-top: 40px;
+}
+
+.made-selector {
+     display: table !important;
+     margin: 40px auto;
+}
+
+.step-card {
+     .lang-selector {
+          margin: 0 auto;
+          display: table;
+          margin-top: 3rem;
+     }
+     .country-selector {
+          cursor: pointer;
+          .flag-selector {
+               cursor: pointer;
+          }
+          h4 {
+               &:hover {
+                    background-color: aquamarine;
+               }
+          }
+     }
+     .country-selector.active {
+          cursor: pointer;
+          h4 {
+               background-color: aquamarine;
+          }
+     }
+
+     .layout-selector.active {
+          background-color: #490e6f !important;
+          border-radius: 5px;
+          p {
+               color: #ffffff;
+          }
+     }
+}
+
+.next-button {
+     margin-top: 30px !important;
+     float: right;
+}
+
+.back-button {
+     margin-top: 30px !important;
+     float: left;
+}
+
+.show {
+     display: block;
+}
+.hide {
+     display: none !important;
+}
+
+.preview-container {
+     min-height: 450px;
+}
+.poster-preview-holder {
+     min-width: 300px;
+     height: 450px;
+     position: relative;
+     margin: auto;
+     width: 60%;
+     padding: 25px 25px 84px 25px;
+     border-radius: 2px;
+     background-position: center;
+     background-size: cover;
+     background-repeat: no-repeat;
+     box-shadow: 7px 7px 20px 0px rgba(0, 0, 0, 0.1);
+     .inner-poster-holder {
+          border: 3px solid #ffffff;
+          border-radius: 4px;
+          height: 100%;
+          width: 100%;
+          position: relative;
+          .text-holder {
+               color: #ffffff;
+               position: absolute;
+               font-size: 22px;
+               text-transform: uppercase;
+               line-height: 25px;
+               margin-left: -28px;
+               margin-top: 25px;
+               padding-left: 24px;
+               padding-right: 80px;
+               padding-top: 10px;
+               padding-bottom: 10px;
+               background-color: transparent;
+          }
+          .hashtag-holder {
+               position: absolute;
+               right: 0px;
+               right: -75px;
+               top: 11%;
+               transform: rotate(90deg);
+               transform-origin: left top 0;
+               p {
+                    color: #ffffff;
+                    font-size: 10px;
+                    line-height: 1px;
+               }
+          }
+     }
+     .poster-footer {
+          position: relative;
+          height: 60px;
+          background-color: #ffffff;
+          margin-left: -25px;
+          margin-right: -25px;
+          margin-top: 25px;
+          padding-right: 30px;
+          padding-left: 30px;
+          padding-top: 10px;
+          p {
+               line-height: 2px;
+               font-size: 12px;
+               font-weight: bolder;
+               margin-top: 10px;
+          }
+          .footer-logo {
+               position: absolute;
+               top: 10px;
+               right: 25px;
+               img {
+                    max-width: 45px;
+               }
+          }
+     }
+}
+
+.pancan-purple-bck {
+     background-color: #490e6f !important;
+}
+
+.wpcc-purple-bck {
+     background-color: #983694 !important;
+}
+.dark-bck {
+     background-color: #000000bd !important;
+}
