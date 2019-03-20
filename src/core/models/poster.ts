@@ -9,5 +9,7 @@ export interface IPoster {
      theme : string,
      createdDate : string,
      shareNetwork : string,
-     posterImage : any
+     posterImage : any,
+     scale : number,
+     title : string
 }

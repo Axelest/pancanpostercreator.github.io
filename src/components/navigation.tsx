@@ -9,7 +9,7 @@ type Props = {
      setStep(step : number);
      poster: any
 }
-class Controller extends Component < Props > {
+class Nav extends Component < Props > {
      constructor(props : Props) {
           super(props);
           this.stepHandler = this
@@ -54,7 +54,7 @@ class Controller extends Component < Props > {
                                    className="step-button">
                                    <Icon name='vcard'/>
                                    <Step.Content>
-                                        <Step.Title>Layout</Step.Title>
+                                        <Step.Title>Start</Step.Title>
                                    </Step.Content>
                               </Step>
                               <Step
@@ -65,7 +65,7 @@ class Controller extends Component < Props > {
                                    className="step-button">
                                    <Icon name='connectdevelop'/>
                                    <Step.Content>
-                                        <Step.Title>Customise</Step.Title>
+                                        <Step.Title>Customize</Step.Title>
                                    </Step.Content>
                               </Step>
                               <Step
@@ -76,7 +76,7 @@ class Controller extends Component < Props > {
                                    className="step-button">
                                    <Icon name='share alternate square'/>
                                    <Step.Content>
-                                        <Step.Title>Share</Step.Title>
+                                        <Step.Title>Save & Share</Step.Title>
                                    </Step.Content>
                               </Step>
                          </Step.Group>
@@ -86,12 +86,14 @@ class Controller extends Component < Props > {
                               className={(poster.step > 1)
                               ? 'back-button show'
                               : ' hide'}>
-                              <Icon name='arrow left'/>
+                              <Icon name='arrow left'/>&nbsp;Back
                          </Button>
                          <Button
-                              className="next-button"
+                              className={(poster.step < 3)
+                              ? 'next-button show'
+                              : ' hide'}
                               onClick={() => this.stepHandler(poster.step + 1)}>
-                              <Icon name='arrow right'/>
+                              Next&nbsp;<Icon name='arrow right'/>
                          </Button>
                     </Container>
                </div>
@@ -104,4 +106,4 @@ const mapDispatchToProps = (dispatch : any) => ({
      setStep: (step : number): void => dispatch({type: SET_STEP, payload: step})
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Controller);
+export default connect(mapStateToProps, mapDispatchToProps)(Nav);

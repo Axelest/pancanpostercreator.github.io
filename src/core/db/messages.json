@@ -1,0 +1,55 @@
+{
+     "messages": {
+          "english": [
+               {
+                    "key": 1,
+                    "value": "I am an advocate and I will speak up",
+                    "text": "I am an advocate and I will speak up"
+               },
+               {
+                    "key": 2,
+                    "value": "Message test 2",
+                    "text": "Message test 2"
+               },
+               {
+                    "key": 3,
+                    "value": "Message test 3",
+                    "text": "Message test 3"
+               }
+          ],
+          "spanish": [
+               {
+                    "key": 1,
+                    "value": "Soy un promotor y hablaré",
+                    "text": "Soy un promotor y hablaré"
+               },
+               {
+                    "key": 2,
+                    "value": "Prueva de mensaje 2",
+                    "text": "Prueva de mensaje 2"
+               },
+               {
+                    "key": 3,
+                    "value": "Prueva de mensaje 3",
+                    "text": "Prueva de mensaje 3"
+               }
+          ],
+          "french": [
+               {
+                    "key": 1,
+                    "value": "Je suis un avocat et je parlerai",
+                    "text": "Je suis un avocat et je parlerai"
+               },
+               {
+                    "key": 2,
+                    "value": "Test de message 2",
+                    "text": "Test de message 2"
+               },
+               {
+                    "key": 3,
+                    "value": "Test de message 3",
+                    "text": "Test de message 3"
+               }
+          ]
+     }
+}

@@ -16,7 +16,7 @@ export class Facebook {
           FB.getLoginStatus((response : any) => console.log(response));
      }
 
-     init() {
+     public init() {
           let js,
                id = 'facebook-jssdk',
                ref : any = document.getElementsByTagName('script')[0];
@@ -37,7 +37,20 @@ export class Facebook {
           js.onload = results => this.initSDK();
      }
 
-     initSDK() {
+     public initSDK() {
           FB.init({appId: this.appId, autoLogAppEvents: true, xfbml: true, version: 'v3.2'});
+     }
+
+     public shareImage(image : string) : void {
+          const options: any = {
+               method: 'share_open_graph',
+               action_type: 'og.likes',
+               action_properties: JSON.stringify({object: 'https://developers.facebook.com/docs/javascript/examples'})
+          }
+          FB.ui(options, this.shareResponse);
+     }
+
+     public shareResponse(response : any) {
+          console.log(response);
      }
 }

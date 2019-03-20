@@ -9,6 +9,8 @@ import {
      SET_IMAGE,
      SET_LOGO,
      POSTER_CREATE,
+     POSTER_SCALE,
+     SET_TITLE,
      setLayout,
      setLanguage,
      setStep,
@@ -16,7 +18,10 @@ import {
      setMessage,
      setImage,
      setLogo,
-     setPoster
+     setPoster,
+     setSize,
+     setTitle
+
 } from '../actions/poster';
 
 /** Watcher */
@@ -29,6 +34,8 @@ function * eventWatcher() {
      yield takeEvery(SET_IMAGE, image);
      yield takeEvery(SET_LOGO, logo);
      yield takeEvery(POSTER_CREATE, poster);
+     yield takeEvery(POSTER_SCALE, scalePoster);
+     yield takeEvery(SET_TITLE, titleSet);
 }
 
 /** set layout */
@@ -96,6 +103,16 @@ function * logo(logo : any) {
 /** poster creation  */
 function * poster(poster : any) {
      yield put(setPoster(poster.payload));
+}
+
+/** poster scale */
+function * scalePoster(scale : any) {
+     yield put(setSize(scale.payload));
+}
+
+/** poster title */
+function * titleSet(title : any) {
+     yield put(setTitle(title.payload));
 }
 
 /** Root saga */

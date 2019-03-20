@@ -11,6 +11,7 @@ import {
      Form,
      TextArea
 } from 'semantic-ui-react';
+import Messages from '../core/db/messages.json';
 
 type Props = {
      setTheme(theme : string);
@@ -23,8 +24,7 @@ type State = {
      error: {
           message: string;
           active: boolean;
-     },
-     messages: any
+     }
 }
 
 class PostMessage extends Component < Props,
@@ -34,22 +34,7 @@ State > {
           error: {
                message: '',
                active: false
-          },
-          messages: [
-               {
-                    key: 1,
-                    value: 'over here 1',
-                    text: 'over here 1'
-               }, {
-                    key: 2,
-                    value: 'over here 2',
-                    text: 'over here 2'
-               }, {
-                    key: 3,
-                    value: 'over here 3',
-                    text: 'over here 3'
-               }
-          ]
+          }
      }
      constructor(props : Props) {
           super(props);
@@ -83,7 +68,7 @@ State > {
      public render() {
           const {poster} = this.props;
           return (
-               <div>
+               <div className="paddingTop">
                     <Header as='h2' className="text-center">Post Theme</Header>
                     <Grid centered columns={2}>
                          <Grid.Column
@@ -118,7 +103,7 @@ State > {
                               : 'hide'}>
                               <Select
                                    placeholder='Select a message'
-                                   options={this.state.messages}
+                                   options={Messages.messages[poster.language]}
                                    onChange={(e, {value}) => this.selectorHandler(value)}/>
                          </div>
                          <div
@@ -128,9 +113,9 @@ State > {
                               <Form>
                                    <TextArea
                                         placeholder='Write a message here'
-                                        maxLength="100"
+                                        maxLength="32"
                                         onChange={this.changeHandler}/>
-                                   <p>Maximum 100 characters</p>
+                                   <p>Maximum 32 characters</p>
                               </Form>
                               {(this.state.error.active)
                                    ? this.state.error.message

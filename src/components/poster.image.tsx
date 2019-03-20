@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {SET_LOGO, SET_MESSAGE, SET_IMAGE} from '../core/actions/poster';
+import {SET_LOGO, SET_MESSAGE, SET_IMAGE, POSTER_SCALE} from '../core/actions/poster';
 import {
      Header,
      Container,
@@ -10,11 +10,15 @@ import {
      TextArea,
      Input
 } from 'semantic-ui-react';
+import Messages from '../core/db/messages.json';
+import TakePicture from './take.picture';
 
 type Props = {
      setImage(image : any, path : string);
      setLogo(logo : any, path : string);
      setMessage(message : string);
+     setSize(scale : number);
+     poster: any;
 }
 
 type State = {
@@ -22,8 +26,8 @@ type State = {
      error: {
           message: string;
           active: boolean
-     },
-     messages: any;
+     };
+     zoom: number;
 }
 class PostImage extends Component < Props,
 State > {
@@ -33,21 +37,7 @@ State > {
                message: '',
                active: false
           },
-          messages: [
-               {
-                    key: 1,
-                    value: 'over here 1',
-                    text: 'over here 1'
-               }, {
-                    key: 2,
-                    value: 'over here 2',
-                    text: 'over here 2'
-               }, {
-                    key: 3,
-                    value: 'over here 3',
-                    text: 'over here 3'
-               }
-          ]
+          zoom: 1
      };
 
      constructor(props : Props) {
@@ -63,6 +53,12 @@ State > {
                .bind(this);
           this.logoHandler = this
                .logoHandler
+               .bind(this);
+          this.zoomChange = this
+               .zoomChange
+               .bind(this);
+          this.startStream = this
+               .startStream
                .bind(this);
      }
 
@@ -85,7 +81,6 @@ State > {
      public selectorHandler(value : any) {
           const {setMessage} = this.props;
           setMessage(value);
-
      }
 
      public changeHandler(e : any) {
@@ -109,7 +104,19 @@ State > {
           setLogo(file, path);
      }
 
+     public zoomChange(e : any, {name, value} : any) {
+          const {setSize} = this.props;
+          this.setState({zoom: value});
+          setSize(value);
+     }
+
+     public startStream() {
+          console.log('will start camera streaming here');
+
+     }
+
      public render() {
+          const {poster} = this.props;
           return (
                <div>
                     <Container className="paddingTop">
@@ -125,7 +132,7 @@ State > {
                               : 'hide'}>
                               <Select
                                    placeholder='Select a message'
-                                   options={this.state.messages}
+                                   options={Messages.messages[poster.language]}
                                    onChange={(e, {value}) => this.selectorHandler(value)}/>
                          </div>
                          <div
@@ -135,15 +142,15 @@ State > {
                               <Form>
                                    <TextArea
                                         placeholder='Write a message here'
-                                        maxLength="100"
+                                        maxLength="32"
                                         onChange={this.changeHandler}/>
-                                   <p>Maximum 100 characters</p>
+                                   <p>Maximum 32 characters</p>
                               </Form>
                               {(this.state.error.active)
                                    ? this.state.error.message
                                    : ''}
                          </div>
-                         <Header as='h4' className="text-left paddingTop">Upload your logo</Header>
+                         {/* <Header as='h4' className="text-left paddingTop">Upload your logo</Header>
                          <Input
                               icon='file'
                               iconPosition='left'
@@ -151,7 +158,7 @@ State > {
                               accept="image/*"
                               type="file"
                               onChange={this.logoHandler}/>
-                         <p>10 MB limit. Allowed types: gif png jpg jpeg.</p>
+                         <p>10 MB limit. Allowed types: gif png jpg jpeg.</p> */}
                          <Header as='h4' className="text-left paddingTop">Upload your image</Header>
                          <Input
                               icon='file'
@@ -161,6 +168,17 @@ State > {
                               type="file"
                               onChange={this.themeImage}/>
                          <p>10 MB limit. Allowed types: gif png jpg jpeg.</p>
+
+                         <TakePicture/>
+                         <Form.Input
+                              label={`Scale image: ${this.state.zoom}x `}
+                              min={1}
+                              max={5}
+                              name='zoom'
+                              onChange={this.zoomChange}
+                              type='range'
+                              value={this.state.zoom}/>
+
                     </Container>
                </div>
           );
@@ -171,7 +189,8 @@ const mapStateTopProps = (state : any) => ({poster: state.rootReducer.poster});
 const mapDispatchToProps = (dispatch : any) => ({
      setImage: (image : any, path : string) => dispatch({type: SET_IMAGE, payload: image, path: path}),
      setLogo: (logo : any, path : string) => dispatch({type: SET_LOGO, payload: logo, path: path}),
-     setMessage: (message : string) => dispatch({type: SET_MESSAGE, payload: message})
+     setMessage: (message : string) => dispatch({type: SET_MESSAGE, payload: message}),
+     setSize: (scale : number) => dispatch({type: POSTER_SCALE, payload: scale})
 });
 
 export default connect(mapStateTopProps, mapDispatchToProps)(PostImage);

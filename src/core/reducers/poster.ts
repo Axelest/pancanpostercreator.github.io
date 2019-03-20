@@ -7,7 +7,9 @@ import {
      MESSAGE_SET,
      LOGO_SET,
      IMAGE_SET,
-     POSTER_CREATE_SUCCESS
+     POSTER_CREATE_SUCCESS,
+     SCALE_SET,
+     TITLE_SET
 } from '../actions/poster';
 import {IPoster} from '../models/poster';
 
@@ -16,13 +18,15 @@ const initPoster = () : IPoster => ({
      type: 'poster message only',
      layoutType: 1,
      language: 'english',
-     message: 'I am an advocate and I will speak up',
+     message: 'Sapiens autem semper beatus est et est aliquando in dolore',
      createdDate: Date(),
      shareNetwork: '',
      theme: 'pancan-purple',
-     image: '',
-     logo: '/xpancan-logo.png.pagespeed.ic.-2mEIsELsy.png',
-     posterImage: {}
+     image: 'https://via.placeholder.com/650',
+     logo: 'https://www.pancan.org//wp-content/uploads/2018/05/pancan-logo.png',
+     posterImage: {},
+     scale: 1,
+     title: 'Title'
 });
 
 export const posterReducer = (state = initPoster(), action : any) => {
@@ -63,6 +67,16 @@ export const posterReducer = (state = initPoster(), action : any) => {
                     ...action.payload
                }
           case POSTER_CREATE_SUCCESS:
+               return {
+                    ...state,
+                    ...action.payload
+               }
+          case SCALE_SET:
+               return {
+                    ...state,
+                    ...action.payload
+               }
+          case TITLE_SET:
                return {
                     ...state,
                     ...action.payload
