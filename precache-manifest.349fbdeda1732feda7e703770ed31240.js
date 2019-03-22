@@ -1,19 +1,19 @@
 self.__precacheManifest = [
   {
-    "revision": "40a6095e51504b9cabdc",
-    "url": "/postercreatorpancan/static/css/main.aa79a12d.chunk.css"
+    "revision": "528e0d3bfd3d09fdd427",
+    "url": "/postercreatorpancan/static/css/main.f7109fda.chunk.css"
   },
   {
-    "revision": "40a6095e51504b9cabdc",
-    "url": "/postercreatorpancan/static/js/main.40a6095e.chunk.js"
+    "revision": "528e0d3bfd3d09fdd427",
+    "url": "/postercreatorpancan/static/js/main.528e0d3b.chunk.js"
   },
   {
-    "revision": "d79e6c4a721df49dd63b",
-    "url": "/postercreatorpancan/static/css/1.f65f3340.chunk.css"
+    "revision": "fcf4e4f19dbfd1704c4a",
+    "url": "/postercreatorpancan/static/css/1.30072399.chunk.css"
   },
   {
-    "revision": "d79e6c4a721df49dd63b",
-    "url": "/postercreatorpancan/static/js/1.d79e6c4a.chunk.js"
+    "revision": "fcf4e4f19dbfd1704c4a",
+    "url": "/postercreatorpancan/static/js/1.fcf4e4f1.chunk.js"
   },
   {
     "revision": "ccb320ea386ad2bde43f",
@@ -56,16 +56,16 @@ self.__precacheManifest = [
     "url": "/postercreatorpancan/static/media/brand-icons.a046592b.woff"
   },
   {
-    "revision": "8e3c7f5520f5ae906c6cf6d7f3ddcd19",
-    "url": "/postercreatorpancan/static/media/icons.8e3c7f55.eot"
+    "revision": "13db00b7a34fee4d819ab7f9838cc428",
+    "url": "/postercreatorpancan/static/media/brand-icons.13db00b7.eot"
   },
   {
     "revision": "b87b9ba532ace76ae9f6edfe9f72ded2",
     "url": "/postercreatorpancan/static/media/icons.b87b9ba5.ttf"
   },
   {
-    "revision": "13db00b7a34fee4d819ab7f9838cc428",
-    "url": "/postercreatorpancan/static/media/brand-icons.13db00b7.eot"
+    "revision": "8e3c7f5520f5ae906c6cf6d7f3ddcd19",
+    "url": "/postercreatorpancan/static/media/icons.8e3c7f55.eot"
   },
   {
     "revision": "c5ebe0b32dc1b5cc449a76c4204d13bb",
@@ -84,7 +84,7 @@ self.__precacheManifest = [
     "url": "/postercreatorpancan/static/media/brand-icons.a1a749e8.svg"
   },
   {
-    "revision": "2e453190637352539ad165af9d3dd4f1",
+    "revision": "261b5d7e7136dd51d79ccd003d44fb3c",
     "url": "/postercreatorpancan/index.html"
   }
 ];
