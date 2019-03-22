@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/pancanpostercreator.github.io/precache-manifest.ac8700ed9c78a3007316366b278a812b.js"
+  "/postercreatorpancan/precache-manifest.2d83531f53d9d730fe7433f4360bf7e3.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/pancanpostercreator.github.io/index.html", {
+workbox.routing.registerNavigationRoute("/postercreatorpancan/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });
