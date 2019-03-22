@@ -14,7 +14,9 @@ State > {
 
      state: State = {
           facebook: 'https://www.facebook.com/sharer/sharer.php?u=https://www.pancan.org/',
-          twitter: 'https://twitter.com/intent/tweet/?text=' + encodeURIComponent('PanCAN Poster #demandbetter #advocate at'),
+          twitter: 'https://twitter.com/intent/tweet/?text=' + encodeURIComponent('#MomentsMatter. Join me & @PanCAN in sharing our stories & raising #pancreaticca' +
+                    'ncer awareness so more patients can have more moments with their loved ones. htt' +
+                    'p://pcan.at/MnM'),
           instagram: 'https://www.instagram.com/pancan/'
      };
 

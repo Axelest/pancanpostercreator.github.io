@@ -18,15 +18,15 @@ const initPoster = () : IPoster => ({
      type: 'poster message only',
      layoutType: 1,
      language: 'english',
-     message: 'Sapiens autem semper beatus est et est aliquando in dolore',
+     message: '',
      createdDate: Date(),
      shareNetwork: '',
      theme: 'pancan-purple',
-     image: 'https://via.placeholder.com/650',
+     image: '',
      logo: 'https://www.pancan.org//wp-content/uploads/2018/05/pancan-logo.png',
      posterImage: {},
      scale: 1,
-     title: 'Title'
+     title: ''
 });
 
 export const posterReducer = (state = initPoster(), action : any) => {
