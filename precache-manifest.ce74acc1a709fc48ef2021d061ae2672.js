@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "2fb89361101f3c4f2b32",
+    "revision": "46ee69204d252b32a8ba",
     "url": "/postercreatorpancan/static/css/main.abb08954.chunk.css"
   },
   {
-    "revision": "2fb89361101f3c4f2b32",
-    "url": "/postercreatorpancan/static/js/main.2fb89361.chunk.js"
+    "revision": "46ee69204d252b32a8ba",
+    "url": "/postercreatorpancan/static/js/main.46ee6920.chunk.js"
   },
   {
     "revision": "fcf4e4f19dbfd1704c4a",
@@ -28,16 +28,16 @@ self.__precacheManifest = [
     "url": "/postercreatorpancan/static/media/outline-icons.ef60a4f6.woff"
   },
   {
-    "revision": "9c74e172f87984c48ddf5c8108cabe67",
-    "url": "/postercreatorpancan/static/media/flags.9c74e172.png"
-  },
-  {
     "revision": "701ae6abd4719e9c2ada3535a497b341",
     "url": "/postercreatorpancan/static/media/outline-icons.701ae6ab.eot"
   },
   {
     "revision": "ad97afd3337e8cda302d10ff5a4026b8",
     "url": "/postercreatorpancan/static/media/outline-icons.ad97afd3.ttf"
+  },
+  {
+    "revision": "9c74e172f87984c48ddf5c8108cabe67",
+    "url": "/postercreatorpancan/static/media/flags.9c74e172.png"
   },
   {
     "revision": "0ab54153eeeca0ce03978cc463b257f7",
@@ -84,7 +84,7 @@ self.__precacheManifest = [
     "url": "/postercreatorpancan/static/media/brand-icons.a1a749e8.svg"
   },
   {
-    "revision": "79a960a7ea36280ff45e3cb31e7584a4",
+    "revision": "f2465fe32036f3a19c23a0055ca25a36",
     "url": "/postercreatorpancan/index.html"
   }
 ];
