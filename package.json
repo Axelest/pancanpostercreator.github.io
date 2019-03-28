@@ -2,6 +2,7 @@
      "name": "poster-creator",
      "version": "0.1.0",
      "private": true,
+     "homepage": "https://axelest.github.io/postercreatorpancan",
      "dependencies": {
           "@types/jest": "23.3.13",
           "@types/node": "10.12.20",
@@ -16,7 +17,9 @@
           "start": "react-scripts start",
           "build": "react-scripts build",
           "test": "react-scripts test",
-          "eject": "react-scripts eject"
+          "eject": "react-scripts eject",
+          "predeploy": "yarn build",
+          "deploy": "gh-pages -d build"
      },
      "eslintConfig": {
           "extends": "react-app"
@@ -28,6 +31,7 @@
           "not op_mini all"
      ],
      "devDependencies": {
+          "gh-pages": "^2.0.1",
           "html2canvas": "^1.0.0-alpha.12",
           "jspdf": "^1.5.3",
           "jssha": "^2.3.1",

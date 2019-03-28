@@ -43,6 +43,10 @@ export const POSTER_CREATE_SUCCESS = 'POSTER_CREATE_SUCCESS';
 export const POSTER_SCALE = 'POSTER_SCALE';
 export const SCALE_SET = 'SCALE_SET';
 
+/** Drag Image */
+export const IMAGE_SET_POSITION = 'IMAGE_SET_POSITION';
+export const IMAGE_POSITION_SET = 'IMAGE_POSITION_SET';
+
 /** Action Handlers */
 export const setLayout = (layout : any) => ({type: LAYOUT_SET, payload: layout});
 export const setLanguage = (language : string) => ({type: LANGUAGE_SET, payload: {
@@ -75,3 +79,11 @@ export const setSize = (scale : number) => ({type: SCALE_SET, payload: {
 export const setTitle = (title : string) => ({type: TITLE_SET, payload: {
           title
      }});
+
+export const setImagePosition = (positionX : number, positionY : number) => ({
+     type: IMAGE_POSITION_SET,
+     payload: {
+          positionX,
+          positionY
+     }
+});

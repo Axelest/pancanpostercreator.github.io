@@ -95,7 +95,6 @@ State > {
           const {poster} = this.props;
           const {elementIds} = this.state;
           const posterElement : any = document.getElementById(elementIds[poster.layoutType]);
-          posterElement.style.visibility = 'visible';
           html2canvas(posterElement).then((canvas : any) => {
                const image = canvas.toDataURL('image/jpeg', 1.0);
                if (type === 'pdf') {
@@ -109,7 +108,6 @@ State > {
                element.href = image;
                element.download = 'poster.jpeg';
                element.click();
-               posterElement.style.visibility = 'hidden';
           });
      }
 
@@ -243,7 +241,6 @@ State > {
                                    }}>First name:
                                    </label>
                                    <Input
-                                        iconPosition='left'
                                         placeholder='First Name'
                                         name='fname'
                                         type="text"
@@ -256,7 +253,6 @@ State > {
                                    }}>Last name:
                                    </label>
                                    <Input
-                                        iconPosition='left'
                                         placeholder='Last Name'
                                         name='lname'
                                         type="text"
@@ -270,7 +266,6 @@ State > {
                                    </label>
                                    <Input
                                         name='email'
-                                        iconPosition='left'
                                         placeholder='Email address'
                                         type="email"
                                         onChange={this.formChange}/>
@@ -379,7 +374,7 @@ State > {
                case 2:
                case 3:
                case 4:
-                    return <Grid container columns={2} stackable>
+                    return <Grid container columns={1} stackable>
                          <Grid.Column textAlign="center">
                               <Button
                                    content='Download JPG'
@@ -389,9 +384,9 @@ State > {
                          {/* <Grid.Column textAlign="center">
                               <Button content='Download PDF' onClick={() => this.downloadPosterImage('pdf')}/>
                          </Grid.Column> */}
-                         <Grid.Column textAlign="center">
+                         {/* <Grid.Column textAlign="center">
                               {this.emailModal()}
-                         </Grid.Column>
+                         </Grid.Column> */}
                     </Grid>;
                default:
                     return <div/>

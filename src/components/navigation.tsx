@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Container, Step, Icon, Button} from 'semantic-ui-react';
+import {Container, Step, Icon, Button, Image} from 'semantic-ui-react';
 import One from './steps/one';
 import Two from './steps/two';
 import Three from './steps/three';
@@ -52,7 +52,9 @@ class Nav extends Component < Props > {
                                    : false}
                                    onClick={() => this.stepHandler(1)}
                                    className="step-button">
-                                   <Icon name='vcard'/>
+                                   <Image
+                                        src='https://0b9aafecab229788ebf1-90f622f94aeb4d165ef7469777c28f31.ssl.cf2.rackcdn.com/poster-creator/NavigationIcons-01.png'
+                                        size='mini'/>
                                    <Step.Content>
                                         <Step.Title>Start</Step.Title>
                                    </Step.Content>
@@ -63,7 +65,9 @@ class Nav extends Component < Props > {
                                    : false}
                                    onClick={() => this.stepHandler(2)}
                                    className="step-button">
-                                   <Icon name='connectdevelop'/>
+                                   <Image
+                                        src='https://0b9aafecab229788ebf1-90f622f94aeb4d165ef7469777c28f31.ssl.cf2.rackcdn.com/poster-creator/NavigationIcons-02.png'
+                                        size='mini'/>
                                    <Step.Content>
                                         <Step.Title>Customize</Step.Title>
                                    </Step.Content>
@@ -74,7 +78,9 @@ class Nav extends Component < Props > {
                                    : false}
                                    onClick={() => this.stepHandler(3)}
                                    className="step-button">
-                                   <Icon name='share alternate square'/>
+                                   <Image
+                                        src='https://0b9aafecab229788ebf1-90f622f94aeb4d165ef7469777c28f31.ssl.cf2.rackcdn.com/poster-creator/NavigationIcons-03.png'
+                                        size='mini'/>
                                    <Step.Content>
                                         <Step.Title>Save & Share</Step.Title>
                                    </Step.Content>

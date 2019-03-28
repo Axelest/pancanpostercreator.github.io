@@ -11,5 +11,7 @@ export interface IPoster {
      shareNetwork : string,
      posterImage : any,
      scale : number,
-     title : string
+     title : string,
+     positionX : number;
+     positionY : number;
 }

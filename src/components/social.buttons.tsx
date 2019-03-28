@@ -13,7 +13,8 @@ class SocialButtons extends Component < {},
 State > {
 
      state: State = {
-          facebook: 'https://www.facebook.com/sharer/sharer.php?u=https://www.pancan.org/',
+          facebook: 'https://www.facebook.com/sharer/sharer.php?u=https://www.pancan.org/get-involved' +
+                    '/moments-matter/',
           twitter: 'https://twitter.com/intent/tweet/?text=' + encodeURIComponent('#MomentsMatter. Join me & @PanCAN in sharing our stories & raising #pancreaticca' +
                     'ncer awareness so more patients can have more moments with their loved ones. htt' +
                     'p://pcan.at/MnM'),

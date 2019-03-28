@@ -9,7 +9,8 @@ import {
      IMAGE_SET,
      POSTER_CREATE_SUCCESS,
      SCALE_SET,
-     TITLE_SET
+     TITLE_SET,
+     IMAGE_POSITION_SET
 } from '../actions/poster';
 import {IPoster} from '../models/poster';
 
@@ -26,7 +27,9 @@ const initPoster = () : IPoster => ({
      logo: 'https://www.pancan.org//wp-content/uploads/2018/05/pancan-logo.png',
      posterImage: {},
      scale: 1,
-     title: ''
+     title: '',
+     positionX: 0,
+     positionY: 0
 });
 
 export const posterReducer = (state = initPoster(), action : any) => {
@@ -77,6 +80,11 @@ export const posterReducer = (state = initPoster(), action : any) => {
                     ...action.payload
                }
           case TITLE_SET:
+               return {
+                    ...state,
+                    ...action.payload
+               }
+          case IMAGE_POSITION_SET:
                return {
                     ...state,
                     ...action.payload

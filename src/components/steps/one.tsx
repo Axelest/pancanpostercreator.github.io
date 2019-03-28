@@ -42,6 +42,8 @@ class One extends Component < Props > {
                                              <Placeholder.Line length='short'/>
                                              <Placeholder.Line length='medium'/>
                                              <Placeholder.Line length='short'/>
+                                             <Placeholder.Line length='medium'/>
+                                             <Placeholder.Line length='short'/>
                                         </Placeholder.Paragraph>
                                    </Placeholder>
                               </Segment>
@@ -83,6 +85,8 @@ class One extends Component < Props > {
                               <Segment raised>
                                    <Placeholder>
                                         <Placeholder.Paragraph>
+                                             <Placeholder.Line length='medium'/>
+                                             <Placeholder.Line length='short'/>
                                              <Placeholder.Line length='medium'/>
                                              <Placeholder.Line length='short'/>
                                              <Placeholder.Line length='medium'/>

@@ -1,4 +1,5 @@
 @import '~semantic-ui-css/semantic.min.css';
+@import '~https://www.pancan.org/wp-content/themes/pancan/core.min.css';
 $purple: #490e6f;
 .icon {
      transition: transform 0.2s;
@@ -6,9 +7,23 @@ $purple: #490e6f;
           transform: scale(1.5);
      }
 }
+.ui.form .field > label {
+     font-size: 16px !important;
+}
+.controller-container {
+     p {
+          font-size: 18px !important;
+          line-height: 24px !important;
+     }
+     textarea,
+     input {
+          font-size: 16px !important;
+     }
+}
 
 .poster-h2 {
      margin: 35px auto !important;
+     font-size: 22px !important;
 }
 .step-card p {
      color: #3c3c3c !important;
@@ -25,19 +40,23 @@ $purple: #490e6f;
 
 .step-button {
      cursor: pointer;
+     padding: 20px 0px !important;
+     text-decoration: none !important;
      .title {
           color: #3c3c3c !important;
+          padding: 5px 0px;
+          font-size: 18px !important;
      }
      color: #3c3c3c !important;
 }
 .step-button.active {
-     color: #4183c4 !important;
-     background-color: $purple !important;
+     color: #3c3c3c !important ;
+     // background-color: $purple !important;
      .icon {
           color: #ffffff !important;
      }
      .title {
-          color: #ffffff !important;
+          color: #3c3c3c !important;
      }
 }
 
@@ -127,6 +146,7 @@ $purple: #490e6f;
      float: right;
      background-color: $purple !important;
      color: #ffffff !important;
+     font-size: 1.5rem !important;
 }
 
 .back-button {
@@ -149,7 +169,7 @@ $purple: #490e6f;
 .poster-preview-holder {
      min-width: 400px;
      height: 450px;
-     border: 8px solid #ffffff;
+     // border: 8px solid #ffffff;
      @media only screen and (max-width: 600px) {
           min-width: 320px;
           height: 370px;

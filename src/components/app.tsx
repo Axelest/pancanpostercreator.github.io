@@ -20,7 +20,7 @@ export class App extends Component {
                          paddingTop: 25,
                          display: 'flex',
                          alignItems: 'center',
-                         minHeight: 600
+                         minHeight: '100%'
                     }}>
                          <Preview/>
                     </Grid.Column>
