@@ -1,7 +1,7 @@
 {
   "main.css": "/postercreatorpancan/static/css/main.d4e82dfe.chunk.css",
-  "main.js": "/postercreatorpancan/static/js/main.96a7cf2c.chunk.js",
-  "main.js.map": "/postercreatorpancan/static/js/main.96a7cf2c.chunk.js.map",
+  "main.js": "/postercreatorpancan/static/js/main.d0130ddf.chunk.js",
+  "main.js.map": "/postercreatorpancan/static/js/main.d0130ddf.chunk.js.map",
   "static/css/1.c5f00b45.chunk.css": "/postercreatorpancan/static/css/1.c5f00b45.chunk.css",
   "static/js/1.bfd2a718.chunk.js": "/postercreatorpancan/static/js/1.bfd2a718.chunk.js",
   "static/js/1.bfd2a718.chunk.js.map": "/postercreatorpancan/static/js/1.bfd2a718.chunk.js.map",
@@ -11,6 +11,6 @@
   "static/css/1.c5f00b45.chunk.css.map": "/postercreatorpancan/static/css/1.c5f00b45.chunk.css.map",
   "static/css/main.d4e82dfe.chunk.css.map": "/postercreatorpancan/static/css/main.d4e82dfe.chunk.css.map",
   "index.html": "/postercreatorpancan/index.html",
-  "precache-manifest.21e756dec6fd829e60c88484b420a43e.js": "/postercreatorpancan/precache-manifest.21e756dec6fd829e60c88484b420a43e.js",
+  "precache-manifest.1d63f5b9a1f8a44efcaefe3f03d195c7.js": "/postercreatorpancan/precache-manifest.1d63f5b9a1f8a44efcaefe3f03d195c7.js",
   "service-worker.js": "/postercreatorpancan/service-worker.js"
 }
