@@ -102,7 +102,7 @@ State > {
                     element.href = url;
                     element.download = 'poster.jpeg';
                     element.click();
-               }, 'image/jpeg');
+               }, 'image/jpeg', 1);
           });
      }
 
