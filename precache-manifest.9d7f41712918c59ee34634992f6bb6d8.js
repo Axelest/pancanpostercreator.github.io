@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "d97b6d715e2f778b27d7",
+    "revision": "d6430e820ff109afe7f6",
     "url": "/postercreatorpancan/static/css/main.d4e82dfe.chunk.css"
   },
   {
-    "revision": "d97b6d715e2f778b27d7",
-    "url": "/postercreatorpancan/static/js/main.d97b6d71.chunk.js"
+    "revision": "d6430e820ff109afe7f6",
+    "url": "/postercreatorpancan/static/js/main.d6430e82.chunk.js"
   },
   {
     "revision": "bfd2a718be2022e3a0b6",
@@ -84,7 +84,7 @@ self.__precacheManifest = [
     "url": "/postercreatorpancan/static/media/brand-icons.a1a749e8.svg"
   },
   {
-    "revision": "143ee519347191822a7e7ae87422ab48",
+    "revision": "47d00634b153c6e0ab7dc77d68984ae4",
     "url": "/postercreatorpancan/index.html"
   }
 ];
