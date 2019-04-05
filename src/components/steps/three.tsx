@@ -11,7 +11,6 @@ import {
 } from 'semantic-ui-react';
 import {connect} from 'react-redux';
 import html2canvas from 'html2canvas';
-import jsPDF from 'jspdf'
 import {POSTER_CREATE} from '../../core/actions/poster';
 import {PopupWindow} from '../../core/helpers/popup';
 import {uploadImage} from '../../core/services/api';
@@ -22,7 +21,7 @@ interface Props {
      setPoster(data : any);
 }
 interface IUser {
-     [key : string] : string
+     [key : string] : string;
 }
 interface State {
      isUploaded : boolean;
@@ -96,18 +95,14 @@ State > {
           const {elementIds} = this.state;
           const posterElement : any = document.getElementById(elementIds[poster.layoutType]);
           html2canvas(posterElement).then((canvas : any) => {
-               const image = canvas.toDataURL('image/jpeg', 1.0);
-               if (type === 'pdf') {
-                    const doc = new jsPDF('p', 'mm');
-                    doc.addImage(image, 'JPEG', 10, 10);
-                    doc.save('poster.pdf');
-                    return;
-               }
-
-               const element = document.createElement('a');
-               element.href = image;
-               element.download = 'poster.jpeg';
-               element.click();
+               canvas.toBlob(blob => {
+                    console.log(blob);
+                    const url = URL.createObjectURL(blob);
+                    const element : any = document.createElement('a')as HTMLElement;
+                    element.href = url;
+                    element.download = 'poster.jpeg';
+                    element.click();
+               }, 'image/jpeg');
           });
      }
 
@@ -118,8 +113,7 @@ State > {
           const {isUploaded} = this.state;
 
           if (!this.checkErrors()) {
-               await
-               html2canvas(posterElement).then(async(canvas : any) => {
+               await html2canvas(posterElement).then(async(canvas : any) => {
                     const image = canvas.toDataURL('image/jpeg', 1.0);
                     const data : any = {
                          key: '5994766c58613900370b6153',
@@ -130,8 +124,8 @@ State > {
                     };
                     const searchParams = Object
                          .keys(data)
-                         .map((key) => {
-                              return encodeURIComponent(key) + '=' + encodeURIComponent(data[key]);
+                         .map(key => {
+                              return (encodeURIComponent(key) + '=' + encodeURIComponent(data[key]));
                          })
                          .join('&');
 
@@ -189,7 +183,9 @@ State > {
           return (
                <b style={{
                     color: 'red'
-               }}>Error! make sure to have vaild form values.</b>
+               }}>
+                    Error! make sure to have vaild form values.
+               </b>
           );
      }
 
@@ -197,7 +193,7 @@ State > {
           const {lname, fname, email} = this.state.user;
           if (lname !== '' && fname !== '' && email !== '') {
                return false;
-          };
+          }
           this.setState({
                error: {
                     error: true
@@ -211,7 +207,7 @@ State > {
           return (
                <Modal
                     open={emailInfo}
-                    trigger={< Button color = 'purple' disabled = {
+                    trigger={< Button color = "purple" disabled = {
                     isUploaded
                          ? true
                          : false
@@ -222,13 +218,13 @@ State > {
                          : 'Send via Email'
                }
                onClick = {
-                    () => this.setState((prevState) => ({
+                    () => this.setState(prevState => ({
                          emailInfo: !prevState.emailInfo
                     }))
                } />}
                     basic
-                    size='small'>
-                    <Header icon='send' content='Send me my poster'/>
+                    size="small">
+                    <Header icon="send" content="Send me my poster"/>
                     <Modal.Content>
                          <strong className="over-image">
                               Your email information:
@@ -238,11 +234,12 @@ State > {
                                    <label
                                         style={{
                                         color: '#ffffff'
-                                   }}>First name:
+                                   }}>
+                                        First name:
                                    </label>
                                    <Input
-                                        placeholder='First Name'
-                                        name='fname'
+                                        placeholder="First Name"
+                                        name="fname"
                                         type="text"
                                         onChange={this.formChange}/>
                               </Form.Field>
@@ -250,11 +247,12 @@ State > {
                                    <label
                                         style={{
                                         color: '#ffffff'
-                                   }}>Last name:
+                                   }}>
+                                        Last name:
                                    </label>
                                    <Input
-                                        placeholder='Last Name'
-                                        name='lname'
+                                        placeholder="Last Name"
+                                        name="lname"
                                         type="text"
                                         onChange={this.formChange}/>
                               </Form.Field>
@@ -262,11 +260,12 @@ State > {
                                    <label
                                         style={{
                                         color: '#ffffff'
-                                   }}>Email:
+                                   }}>
+                                        Email:
                                    </label>
                                    <Input
-                                        name='email'
-                                        placeholder='Email address'
+                                        name="email"
+                                        placeholder="Email address"
                                         type="email"
                                         onChange={this.formChange}/>
                               </Form.Field>
@@ -274,24 +273,24 @@ State > {
                     </Modal.Content>
                     <Modal.Actions>
                          <Button
-                              color='red'
+                              color="red"
                               inverted
-                              onClick={() => this.setState((prevState) => ({
+                              onClick={() => this.setState(prevState => ({
                               emailInfo: !prevState.emailInfo
                          }))}>
-                              <Icon name='remove'/>
+                              <Icon name="remove"/>
                               No
                          </Button>
-                         <Button color='green' inverted onClick={this.sendToEmail}>
-                              <Icon name='mail'/>
+                         <Button color="green" inverted onClick={this.sendToEmail}>
+                              <Icon name="mail"/>
                               Send
                          </Button>
-                         {(this.state.error.error)
+                         {this.state.error.error
                               ? this.error()
                               : ''}
                     </Modal.Actions>
                </Modal>
-          )
+          );
      }
 
      public shareTwitter() {
@@ -302,7 +301,7 @@ State > {
                const data : any = {
                     key: '5994766c58613900370b6153',
                     image: image
-               }
+               };
                let url : string;
                if (!isUploaded) {
                     const response : any = await uploadImage(data);
@@ -316,7 +315,6 @@ State > {
 
                new PopupWindow().getWindow(url, 'Share Poster', 530, 400);
           });
-
      }
 
      public shareFacebook() {
@@ -366,7 +364,6 @@ State > {
                ia[i] = byteString.charCodeAt(i);
           }
           return new Blob([ia], {type: mimeString});
-
      }
      public controllers(type : number) {
           switch (type) {
@@ -374,22 +371,25 @@ State > {
                case 2:
                case 3:
                case 4:
-                    return <Grid container columns={1} stackable>
-                         <Grid.Column textAlign="center">
-                              <Button
-                                   content='Download JPG'
-                                   color='purple'
-                                   onClick={() => this.downloadPosterImage('image')}/>
-                         </Grid.Column>
-                         {/* <Grid.Column textAlign="center">
+                    return (
+                         <Grid container columns={1} stackable>
+                              <Grid.Column textAlign="center">
+                                   <Button
+                                        content="Download JPG"
+                                        className="gutter-mobile"
+                                        color="purple"
+                                        onClick={() => this.downloadPosterImage('image')}/>
+                              </Grid.Column>
+                              {/* <Grid.Column textAlign="center">
                               <Button content='Download PDF' onClick={() => this.downloadPosterImage('pdf')}/>
                          </Grid.Column> */}
-                         {/* <Grid.Column textAlign="center">
+                              {/* <Grid.Column textAlign="center">
                               {this.emailModal()}
                          </Grid.Column> */}
-                    </Grid>;
+                         </Grid>
+                    );
                default:
-                    return <div/>
+                    return <div/>;
           }
      }
      public render() {
@@ -398,17 +398,18 @@ State > {
           //      ? 'Share your poster'      : 'Download image';
           return (
                <Container className="step paddingTop">
-                    <Header as='h2' content={title} textAlign="center" className="poster-h2"/>
+                    <Header as="h2" content={title} textAlign="center" className="poster-h2"/>
                     <p
                          style={{
                          textAlign: 'center'
                     }}
-                         className="paddingBottom over-solid leadin-copy">Share
-                         your Moment with the world by downloading your image and sharing it to social
-                         media with #MomentsMatter and tagging us @PanCAN.</p>
+                         className="paddingBottom over-solid leadin-copy">
+                         Share your Moment with the world by downloading your image and sharing it to
+                         social media with #MomentsMatter and tagging us @PanCAN.
+                    </p>
 
                     <SocialButtons/>
-                    <br/>{this.controllers(poster.layoutType)}
+                    <br/> {this.controllers(poster.layoutType)}
                </Container>
           );
      }

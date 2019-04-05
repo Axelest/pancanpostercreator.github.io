@@ -63,6 +63,7 @@ $purple: #490e6f;
                text-align: center !important;
                padding: 0px 20px;
                word-break: break-all;
+               word-wrap: break-word !important;
                line-height: 20px !important;
           }
           .content {
@@ -73,6 +74,7 @@ $purple: #490e6f;
                font-size: 15px;
                padding: 0px 20px;
                word-break: break-all;
+               word-wrap: break-word !important;
           }
      }
 }
@@ -80,10 +82,10 @@ $purple: #490e6f;
 .final-vertical {
      position: fixed;
      top: 2%;
-     left: -500%;
+     left: -2555%;
      visibility: visible;
-     height: 1920px;
-     width: 1080px;
+     width: 450px;
+     height: 800px;
      padding-left: 0px;
      padding-right: 0px;
      border: 20px solid #ffffff;
@@ -99,28 +101,28 @@ $purple: #490e6f;
                top: 0px;
                width: 100%;
                .logo-holder {
-                    height: 300px;
+                    height: 110px;
                     position: relative;
                     display: flex;
                     align-items: center;
                     background: linear-gradient(
-                         rgba(255, 255, 255, 0.9),
+                         rgba(255, 255, 255, 0.9) 25%,
                          rgba(255, 255, 255, 0)
                     );
                     span {
                          color: #490e6f;
                          text-transform: uppercase;
-                         font-size: 4rem;
+                         font-size: 2.3rem;
                          font-family: $roboto;
                          position: absolute;
                          right: 40%;
-                         font-weight: 500;
+                         font-weight: 600;
                     }
                     img {
                          position: absolute;
                          right: 10%;
-                         width: 100%;
-                         max-width: 180px;
+                         width: 80%;
+                         max-width: 70px;
                          height: auto;
                     }
                }
@@ -129,28 +131,30 @@ $purple: #490e6f;
      .body-copy {
           height: 40%;
           background-color: #ffffff;
-          padding-top: 70px;
+          padding-top: 30px;
           .title {
                font-family: $roboto;
                color: $purple;
                font-weight: bold;
-               font-size: 55px;
+               font-size: 30px;
                text-transform: uppercase;
                margin: 10px 5px 25px;
                text-align: center !important;
-               padding: 0px 120px;
+               padding: 0px 30px;
                width: 100%;
                word-break: break-word !important;
+               word-wrap: break-word !important;
           }
           .content {
                font-family: $roboto;
                font-weight: 300;
                color: $purple;
                text-align: left;
-               font-size: 50px;
-               line-height: 75px;
-               padding: 0px 120px;
+               font-size: 25px;
+               line-height: 30px;
+               padding: 0px 30px;
                word-break: break-word !important;
+               word-wrap: break-word !important;
           }
      }
 }

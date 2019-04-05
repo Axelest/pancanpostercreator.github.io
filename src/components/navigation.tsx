@@ -5,11 +5,19 @@ import Two from './steps/two';
 import Three from './steps/three';
 import {connect} from 'react-redux';
 import {SET_STEP} from '../core/actions/poster';
+
 type Props = {
      setStep(step : number);
      poster: any
 }
-class Nav extends Component < Props > {
+interface IState {
+     element : any;
+}
+class Nav extends Component < Props,
+IState > {
+     state : IState = {
+          element: HTMLElement
+     };
      constructor(props : Props) {
           super(props);
           this.stepHandler = this
@@ -20,6 +28,11 @@ class Nav extends Component < Props > {
                .bind(this);
      }
 
+     componentDidMount() {
+          const element = document.getElementById('controller-container-app');
+          this.setState({element});
+     }
+
      public stepHandler(step : number) {
           const {setStep} = this.props;
           setStep(step);
@@ -28,7 +41,7 @@ class Nav extends Component < Props > {
      public stepRender() : any {
           const {poster} = this.props;
           const {step} = poster;
-
+          this.state.element.scrollTop = 0;
           switch (step) {
                case 1:
                     return <One/>;
@@ -43,9 +56,9 @@ class Nav extends Component < Props > {
           const {poster} = this.props;
 
           return (
-               <div className="controller-container">
+               <div className="controller-container" id="controller-container-app">
                     <Container>
-                         <Step.Group fluid>
+                         <Step.Group fluid unstackable>
                               <Step
                                    active={(poster.step === 1)
                                    ? true
@@ -55,7 +68,7 @@ class Nav extends Component < Props > {
                                    <Image
                                         src='https://0b9aafecab229788ebf1-90f622f94aeb4d165ef7469777c28f31.ssl.cf2.rackcdn.com/poster-creator/NavigationIcons-01.png'
                                         size='mini'/>
-                                   <Step.Content>
+                                   <Step.Content className="step-text">
                                         <Step.Title>Start</Step.Title>
                                    </Step.Content>
                               </Step>
@@ -68,7 +81,7 @@ class Nav extends Component < Props > {
                                    <Image
                                         src='https://0b9aafecab229788ebf1-90f622f94aeb4d165ef7469777c28f31.ssl.cf2.rackcdn.com/poster-creator/NavigationIcons-02.png'
                                         size='mini'/>
-                                   <Step.Content>
+                                   <Step.Content className="step-text">
                                         <Step.Title>Customize</Step.Title>
                                    </Step.Content>
                               </Step>
@@ -81,7 +94,7 @@ class Nav extends Component < Props > {
                                    <Image
                                         src='https://0b9aafecab229788ebf1-90f622f94aeb4d165ef7469777c28f31.ssl.cf2.rackcdn.com/poster-creator/NavigationIcons-03.png'
                                         size='mini'/>
-                                   <Step.Content>
+                                   <Step.Content className="step-text">
                                         <Step.Title>Save & Share</Step.Title>
                                    </Step.Content>
                               </Step>

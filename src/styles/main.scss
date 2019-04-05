@@ -134,9 +134,9 @@ $purple: #490e6f;
           }
 
           border-radius: 5px;
-          p {
-               // color: #ffffff !important;
-          }
+          // p {
+          //      // color: #ffffff !important;
+          // }
      }
 }
 
@@ -160,11 +160,14 @@ $purple: #490e6f;
 .hide {
      display: none !important;
 }
-
+.ui.container.preview-container {
+     width: 100% !important;
+}
 .preview-container {
      min-height: 450px;
      padding-left: 0;
      padding-right: 0;
+     width: 100% !important;
 }
 .poster-preview-holder {
      min-width: 400px;
@@ -303,5 +306,20 @@ $purple: #490e6f;
      margin: 0 auto;
      button {
           margin: 0 10px !important;
+     }
+}
+
+@media (max-width: 414px) {
+     p.layout-type-text {
+          font-size: 12px !important;
+          line-height: 13px !important ;
+     }
+     .step-text,
+     .take-picture {
+          display: none;
+     }
+     .gutter-mobile {
+          margin-top: 25px;
+          margin-bottom: 25px;
      }
 }

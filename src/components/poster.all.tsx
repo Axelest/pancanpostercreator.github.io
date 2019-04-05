@@ -3,6 +3,7 @@ import {Input, Container, Header, Form, TextArea} from 'semantic-ui-react';
 import {connect} from 'react-redux';
 import {SET_IMAGE, SET_LOGO, SET_MESSAGE, POSTER_SCALE, SET_TITLE} from '../core/actions/poster';
 import TakePicture from './take.picture';
+import {getOrientation} from '../core/helpers/image';
 
 /** Interfaces */
 type Props = {
@@ -12,16 +13,16 @@ type Props = {
      setSize(scale : number);
      setTitle(title : string);
      poster: any;
-}
+};
 
 type State = {
      messageType: number;
      error: {
           message: string;
-          active: boolean
+          active: boolean;
      };
      zoom: number;
-}
+};
 
 class GeneralCustom extends Component < Props,
 State > {
@@ -57,14 +58,22 @@ State > {
           this.titleChangeHandler = this
                .titleChangeHandler
                .bind(this);
+          this.findImageOrientation = this
+               .findImageOrientation
+               .bind(this);
+     }
+
+     public findImageOrientation(orientation, image) {
+          const {setImage} = this.props;
+          setImage(orientation, image);
      }
 
      public themeImage(e : any) {
           const limit = 5 * 1048576; // 10MB
-          const {setImage} = this.props;
           const file = e.target.files[0];
-          const path = URL.createObjectURL(file);
+
           if (file.size > limit) {
+               console.log('Image way to big');
                return this.setState({
                     error: {
                          message: 'File is way to big...',
@@ -72,7 +81,7 @@ State > {
                     }
                });
           }
-          setImage(file, path);
+          getOrientation(file, this.findImageOrientation);
      }
 
      public selectorHandler(value : any) {
@@ -95,6 +104,7 @@ State > {
           const {setLogo} = this.props;
           const file = e.target.files[0];
           const path = URL.createObjectURL(file);
+
           if (file.size > limit) {
                return this.setState({
                     error: {
@@ -114,43 +124,51 @@ State > {
 
      public startStream() {
           console.log('will start camera streaming here');
-
      }
 
      public render() {
           const {poster} = this.props;
           return (
                <Container textAlign="center">
-                    <Header as='h2' className="text-center poster-h2">Upload your image</Header>
+                    <Header as="h2" className="text-center poster-h2">
+                         Upload your image
+                    </Header>
                     <Input
-                         icon='file'
-                         iconPosition='left'
-                         placeholder='Upload Image'
+                         icon="file"
+                         iconPosition="left"
+                         placeholder="Upload Image"
                          accept="image/*"
                          type="file"
                          onChange={this.themeImage}/>
                     <p>10 MB limit. Allowed types: gif png jpg jpeg.</p>
-                    <Header as='h2' className="text-center poster-h2">Take a picture</Header>
-                    <TakePicture/>
+                    <Header as="h2" className="text-center poster-h2 take-picture">
+                         Take a picture
+                    </Header>
+                    <div className="take-picture">
+                         <TakePicture/>
+                    </div>
                     <Form.Input
                          label={`Scale image: `}
                          min={1}
                          max={10}
-                         name='zoom'
+                         name="zoom"
                          onChange={this.zoomChange}
-                         type='range'
+                         type="range"
                          value={this.state.zoom}
                          className="scale-controller"/>
-                    <Header as='h2' textAlign="center" className="text-center poster-h2">Share Your Moment</Header>
+                    <Header as="h2" textAlign="center" className="text-center poster-h2">
+                         Share Your Moment
+                    </Header>
                     <Form>
                          <Input
-                              className={(poster.layoutType === 1)
-                              ? "hide"
-                              : "show paddingBottom"}
-                              placeholder='Poster title'
+                              className={poster.layoutType === 1
+                              ? 'hide'
+                              : 'show paddingBottom'}
+                              placeholder="Poster title"
                               type="text"
                               onChange={this.titleChangeHandler}
-                              defaultValue={poster.title}/>
+                              defaultValue={poster.title}
+                              maxLength="35"/>
                          <TextArea
                               placeholder="Write 'I am and will' message here. eg. 'I am a student and I will spread the word'."
                               maxLength="150"

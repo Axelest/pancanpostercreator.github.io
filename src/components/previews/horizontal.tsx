@@ -17,20 +17,13 @@ interface State {
 
 class Horizontal extends Component < Props,
 State > {
-
      state : State = {
           mouseMoving: false,
           element: ''
-     }
+     };
 
      constructor(props : Props) {
           super(props);
-          this.mouseDown = this
-               .mouseDown
-               .bind(this);
-          this.mouseUp = this
-               .mouseUp
-               .bind(this);
           this.moving = this
                .moving
                .bind(this);
@@ -41,30 +34,57 @@ State > {
           this
                .state
                .element
-               .addEventListener('mousedown', this.mouseDown);
+               .addEventListener('mousedown', () => this.state.element.addEventListener('mousemove', this.moving, false));
           this
                .state
                .element
-               .addEventListener('mouseup', this.mouseUp)
+               .addEventListener('mouseup', () => this.state.element.removeEventListener('mousemove', this.moving, false));
+          this
+               .state
+               .element
+               .addEventListener('touchmove', this.moving);
+     }
+
+     componentWillUnmount() {
+          this
+               .state
+               .element
+               .removeEventListener('mousedown', this.moving, false);
+          this
+               .state
+               .element
+               .removeEventListener('mouseup', this.moving, false);
+
+          this
+               .state
+               .element
+               .removeEventListener('touchmove', this.moving, false);
      }
 
      public moving(e) {
+          // set state
+          this.setState({
+               mouseMoving: !this.state.mouseMoving
+          });
+
           const {setImagePosition} = this.props;
-          setImagePosition(e.offsetX - this.state.element.offsetWidth / 2, e.offsetY - this.state.element.offsetHeight / 2);
-     }
-
-     public mouseUp() {
-          document.removeEventListener('mousemove', this.moving, false);
-          this.setState({
-               mouseMoving: !this.state.mouseMoving
-          });
-     }
-
-     public mouseDown(e : any) {
-          this.setState({
-               mouseMoving: !this.state.mouseMoving
-          });
-          document.addEventListener('mousemove', this.moving, false);
+          if (e.type === 'touchmove') {
+               const touch = e.changedTouches[0];
+               const X : number = touch.clientX - this
+                    .state
+                    .element
+                    .getBoundingClientRect()
+                    .left - this.state.element.offsetWidth / 2;
+               const Y : number = touch.clientY - this
+                    .state
+                    .element
+                    .getBoundingClientRect()
+                    .top - this.state.element.offsetHeight / 2;
+               return setImagePosition(X, Y);
+          }
+          const X : number = e.offsetX - this.state.element.offsetWidth / 2;
+          const Y : number = e.offsetY - this.state.element.offsetHeight / 2;
+          return setImagePosition(X, Y);
      }
 
      public render() {
@@ -79,10 +99,12 @@ State > {
                               className="image-half"
                               style={{
                               backgroundImage: 'url( ' + imageBackground + ' )',
-                              backgroundSize: (poster.scale === '1' || poster.scale === 1)
+                              backgroundSize: poster.scale === '1' || poster.scale === 1
                                    ? 'cover'
-                                   : (poster.scale * 20) + 150 + '%',
-                              backgroundPosition: -(poster.positionX) + '% ' + poster.positionY + 'px'
+                                   : poster.scale * 20 + 150 + '%',
+                              backgroundPosition: poster.positionX === 0 && poster.positionY === 0
+                                   ? 'center'
+                                   : poster.positionX + '% ' + poster.positionY + 'px'
                          }}/>
                          <Grid.Column className="text-half">
                               <div className="header">
@@ -91,7 +113,7 @@ State > {
                                         <img src="pancan-logo.png" alt=""/>
                                    </div>
                               </div>
-                              <Header as={'h2'} className="title" textAlign='left' content={poster.title}/>
+                              <Header as={'h2'} className="title" textAlign="left" content={poster.title}/>
                               <p className="content">{poster.message}</p>
                          </Grid.Column>
                     </Grid>
@@ -100,10 +122,12 @@ State > {
                               className="image"
                               style={{
                               backgroundImage: 'url( ' + imageBackground + ' )',
-                              backgroundSize: (poster.scale === '1' || poster.scale === 1)
+                              backgroundSize: poster.scale === '1' || poster.scale === 1
                                    ? 'cover'
-                                   : (poster.scale * 20) + 150 + '%',
-                              backgroundPosition: -(poster.positionX) + '% ' + poster.positionY + 'px'
+                                   : poster.scale * 20 + 150 + '%',
+                              backgroundPosition: poster.positionX === 0 && poster.positionY === 0
+                                   ? 'center'
+                                   : poster.positionX + '% ' + poster.positionY + 'px'
                          }}/>
                          <Grid.Column className="body-text">
                               <div className="header">
@@ -115,7 +139,6 @@ State > {
                               <Header as={'h2'} className="title" content={poster.title}/>
                               <p className="content">{poster.message}</p>
                          </Grid.Column>
-
                     </Grid>
                </div>
           );

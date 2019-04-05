@@ -48,7 +48,8 @@ $purple: #490e6f;
                text-transform: uppercase;
                margin: 0px 5px 5px;
                text-align: left !important;
-               word-break: break-all;
+               word-break: break-all !important;
+               word-wrap: break-word !important;
           }
           .content {
                font-family: $roboto;
@@ -57,7 +58,8 @@ $purple: #490e6f;
                text-align: left;
                font-size: 10px;
                padding: 0px 20px 0px 5px;
-               word-break: break-all;
+               word-break: break-all !important;
+               word-wrap: break-word !important;
           }
      }
 }
@@ -116,6 +118,7 @@ $purple: #490e6f;
                padding-left: 15px;
                padding-top: 20px;
                word-break: break-word !important;
+               word-wrap: break-word !important;
                width: 100%;
           }
           .content {
@@ -127,6 +130,7 @@ $purple: #490e6f;
                padding-right: 15px;
                text-align: left;
                word-break: break-word !important;
+               word-wrap: break-word !important;
           }
      }
 }

@@ -24,10 +24,10 @@ class One extends Component < Props > {
           return (
                <div className="step-card paddingTop">
                     <Header as='h2' className="text-center poster-h2">Choose your layout</Header>
-                    <Grid centered divided columns={3}>
+                    <Grid centered columns={3}>
                          <Grid.Column
                               computer={5}
-                              mobile={16}
+                              mobile={10}
                               tablet={5}
                               textAlign='center'
                               className={(poster.type === 'poster message only')
@@ -47,7 +47,7 @@ class One extends Component < Props > {
                                         </Placeholder.Paragraph>
                                    </Placeholder>
                               </Segment>
-                              <p className='center'>Square&nbsp;<br/>(Short message only)</p>
+                              <p className='center layout-type-text'>Square&nbsp;<br/>(Short message only)</p>
                          </Grid.Column>
                          <Grid.Column
                               computer={7}
@@ -71,11 +71,11 @@ class One extends Component < Props > {
                                         </Placeholder.Paragraph>
                                    </Placeholder>
                               </Segment>
-                              <p className='center'>Horizontal&nbsp;<br/>(Share your story)</p>
+                              <p className='center layout-type-text'>Horizontal&nbsp;<br/>(Share your story)</p>
                          </Grid.Column>
                          <Grid.Column
                               computer={4}
-                              mobile={16}
+                              mobile={8}
                               tablet={4}
                               textAlign='center'
                               className={(poster.type === 'post message only')
@@ -97,7 +97,7 @@ class One extends Component < Props > {
                                         </Placeholder.Paragraph>
                                    </Placeholder>
                               </Segment>
-                              <p className='center'>Vertical&nbsp;<br/>(Share your story)</p>
+                              <p className='center layout-type-text'>Vertical&nbsp;<br/>(Share your story)</p>
                          </Grid.Column>
                     </Grid>
                </div>
