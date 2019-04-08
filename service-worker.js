@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/postercreatorpancan/precache-manifest.6c16954a793525fb617571720a573d9b.js"
+  "/postercreatorpancan/precache-manifest.7209151619abef9d26f1fecaebd445c1.js"
 );
 
 workbox.clientsClaim();
