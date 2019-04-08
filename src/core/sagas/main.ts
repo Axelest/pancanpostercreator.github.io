@@ -1,5 +1,5 @@
 /** Import dependencies */
-import {all, put, takeEvery} from 'redux-saga/effects';
+import { all, put, takeEvery } from 'redux-saga/effects';
 import {
      SET_LAYOUT,
      SET_LANGUAGE,
@@ -12,6 +12,7 @@ import {
      POSTER_SCALE,
      SET_TITLE,
      IMAGE_SET_POSITION,
+     IMAGE_CROP,
      setLayout,
      setLanguage,
      setStep,
@@ -22,12 +23,12 @@ import {
      setPoster,
      setSize,
      setTitle,
-     setImagePosition
-
+     setImagePosition,
+     setImageCrop
 } from '../actions/poster';
 
 /** Watcher */
-function * eventWatcher() {
+function* eventWatcher() {
      yield takeEvery(SET_LAYOUT, layout);
      yield takeEvery(SET_LANGUAGE, language);
      yield takeEvery(SET_STEP, stepper);
@@ -39,92 +40,99 @@ function * eventWatcher() {
      yield takeEvery(POSTER_SCALE, scalePoster);
      yield takeEvery(SET_TITLE, titleSet);
      yield takeEvery(IMAGE_SET_POSITION, imagePosition);
+     yield takeEvery(IMAGE_CROP, imageCrop);
 }
 
 /** set layout */
-function * layout(type : any) {
-     let layout : any;
+function* layout(type: any) {
+     let layout: any;
      switch (type.payload) {
           case 'poster message only':
                layout = {
                     type: 'poster message only',
                     layoutType: 1
-               }
+               };
                break;
           case 'poster message and image':
                layout = {
                     type: 'poster message and image',
                     layoutType: 2
-               }
+               };
                break;
           case 'post message only':
                layout = {
                     type: 'post message only',
                     layoutType: 3
-               }
+               };
                break;
           case 'post image':
                layout = {
                     type: 'post image',
                     layoutType: 4
-               }
+               };
                break;
      }
      yield put(setLayout(layout));
 }
 
 /** set language */
-function * language(type : any) {
+function* language(type: any) {
      yield put(setLanguage(type.payload));
 }
 
 /** update step */
-function * stepper(step : any) {
+function* stepper(step: any) {
      yield put(setStep(step.payload));
 }
 
 /** set theme */
-function * theme(theme : any) {
+function* theme(theme: any) {
      yield put(setTheme(theme.payload));
 }
 
 /** set message */
-function * message(message : any) {
+function* message(message: any) {
      yield put(setMessage(message.payload));
 }
 
 /** set image */
-function * image(image : any) {
+function* image(image: any) {
      yield put(setImage(image.path));
 }
 
 /** set logo */
-function * logo(logo : any) {
+function* logo(logo: any) {
      yield put(setLogo(logo.path));
 }
 
 /** poster creation  */
-function * poster(poster : any) {
+function* poster(poster: any) {
      yield put(setPoster(poster.payload));
 }
 
 /** poster scale */
-function * scalePoster(scale : any) {
+function* scalePoster(scale: any) {
      yield put(setSize(scale.payload));
 }
 
 /** poster title */
-function * titleSet(title : any) {
+function* titleSet(title: any) {
      yield put(setTitle(title.payload));
 }
 
 /** image position */
-function * imagePosition(data : any) {
+function* imagePosition(data: any) {
+     // yield console.log('position will be updated later one day');
      yield put(setImagePosition(data.payload.x, data.payload.y));
 }
 
+/** Image crop change  */
+function* imageCrop(data: any) {
+     yield put(setImageCrop(data.payload.url));
+}
+
 /** Root saga */
-export function * rootSaga() {
+export function* rootSaga() {
      const sagas = [eventWatcher()];
      yield all(sagas);
 }

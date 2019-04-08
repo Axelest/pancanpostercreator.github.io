@@ -1,17 +1,18 @@
-import React, {Component} from 'react';
-import {Input, Container, Header, Form, TextArea} from 'semantic-ui-react';
-import {connect} from 'react-redux';
-import {SET_IMAGE, SET_LOGO, SET_MESSAGE, POSTER_SCALE, SET_TITLE} from '../core/actions/poster';
+import React, { Component } from 'react';
+import { Input, Container, Header, Form, TextArea } from 'semantic-ui-react';
+import { connect } from 'react-redux';
+import { SET_IMAGE, SET_LOGO, SET_MESSAGE, POSTER_SCALE, SET_TITLE } from '../core/actions/poster';
 import TakePicture from './take.picture';
-import {getOrientation} from '../core/helpers/image';
+import { getOrientation } from '../core/helpers/image';
+import Cropper from '../components/crop.picture';
 
 /** Interfaces */
 type Props = {
-     setImage(image : any, path : string);
-     setLogo(logo : any, path : string);
-     setMessage(message : string);
-     setSize(scale : number);
-     setTitle(title : string);
+     setImage(image: any, path: string);
+     setLogo(logo: any, path: string);
+     setMessage(message: string);
+     setSize(scale: number);
+     setTitle(title: string);
      poster: any;
 };
 
@@ -24,9 +25,9 @@ type State = {
      zoom: number;
 };
 
-class GeneralCustom extends Component < Props,
-State > {
-     state : State = {
+class GeneralCustom extends Component<Props,
+     State> {
+     state: State = {
           messageType: 1,
           error: {
                message: '',
@@ -35,7 +36,7 @@ State > {
           zoom: 1
      };
 
-     constructor(props : Props) {
+     constructor(props: Props) {
           super(props);
           this.themeImage = this
                .themeImage
@@ -64,11 +65,11 @@ State > {
      }
 
      public findImageOrientation(orientation, image) {
-          const {setImage} = this.props;
+          const { setImage } = this.props;
           setImage(orientation, image);
      }
 
-     public themeImage(e : any) {
+     public themeImage(e: any) {
           const limit = 5 * 1048576; // 10MB
           const file = e.target.files[0];
 
@@ -84,24 +85,24 @@ State > {
           getOrientation(file, this.findImageOrientation);
      }
 
-     public selectorHandler(value : any) {
-          const {setMessage} = this.props;
+     public selectorHandler(value: any) {
+          const { setMessage } = this.props;
           setMessage(value);
      }
 
-     public titleChangeHandler(e : any) {
-          const {setTitle} = this.props;
+     public titleChangeHandler(e: any) {
+          const { setTitle } = this.props;
           setTitle(e.target.value);
      }
 
-     public changeHandler(e : any) {
-          const {setMessage} = this.props;
+     public changeHandler(e: any) {
+          const { setMessage } = this.props;
           setMessage(e.target.value);
      }
 
-     public logoHandler(e : any) {
+     public logoHandler(e: any) {
           const limit = 5 * 1048576; // 10MB
-          const {setLogo} = this.props;
+          const { setLogo } = this.props;
           const file = e.target.files[0];
           const path = URL.createObjectURL(file);
 
@@ -116,9 +117,9 @@ State > {
           setLogo(file, path);
      }
 
-     public zoomChange(e : any, {name, value} : any) {
-          const {setSize} = this.props;
-          this.setState({zoom: value});
+     public zoomChange(e: any, { name, value }: any) {
+          const { setSize } = this.props;
+          this.setState({ zoom: value });
           setSize(value);
      }
 
@@ -127,7 +128,7 @@ State > {
      }
 
      public render() {
-          const {poster} = this.props;
+          const { poster } = this.props;
           return (
                <Container textAlign="center">
                     <Header as="h2" className="text-center poster-h2">
@@ -139,41 +140,39 @@ State > {
                          placeholder="Upload Image"
                          accept="image/*"
                          type="file"
-                         onChange={this.themeImage}/>
+                         onChange={this.themeImage} />
                     <p>10 MB limit. Allowed types: gif png jpg jpeg.</p>
                     <Header as="h2" className="text-center poster-h2 take-picture">
                          Take a picture
                     </Header>
                     <div className="take-picture">
-                         <TakePicture/>
+                         <TakePicture />
                     </div>
-                    <Form.Input
-                         label={`Scale image: `}
-                         min={1}
-                         max={10}
-                         name="zoom"
-                         onChange={this.zoomChange}
-                         type="range"
-                         value={this.state.zoom}
-                         className="scale-controller"/>
+                    <div className="cropper" id="crop-holder-element">
+                         <Header as="h2" textAlign="center" className="text-center poster-h2">
+                              Edit Image
+                         </Header>
+                         <Cropper />
+                    </div>
+
                     <Header as="h2" textAlign="center" className="text-center poster-h2">
                          Share Your Moment
                     </Header>
                     <Form>
                          <Input
                               className={poster.layoutType === 1
-                              ? 'hide'
-                              : 'show paddingBottom'}
+                                   ? 'hide'
+                                   : 'show paddingBottom'}
                               placeholder="Poster title"
                               type="text"
                               onChange={this.titleChangeHandler}
                               defaultValue={poster.title}
-                              maxLength="35"/>
+                              maxLength="35" />
                          <TextArea
                               placeholder="Write 'I am and will' message here. eg. 'I am a student and I will spread the word'."
                               maxLength="150"
                               onChange={this.changeHandler}
-                              defaultValue={poster.message}/>
+                              defaultValue={poster.message} />
                          <p>Maximum 150 characters</p>
                     </Form>
                </Container>
@@ -181,13 +180,13 @@ State > {
      }
 }
 
-const mapProps = (poster : any) => ({poster: poster.rootReducer.poster});
-const mapDispatch = (dispatch : any) => ({
-     setImage: (image : any, path : string) => dispatch({type: SET_IMAGE, payload: image, path: path}),
-     setLogo: (logo : any, path : string) => dispatch({type: SET_LOGO, payload: logo, path: path}),
-     setMessage: (message : string) => dispatch({type: SET_MESSAGE, payload: message}),
-     setSize: (scale : number) => dispatch({type: POSTER_SCALE, payload: scale}),
-     setTitle: (title : string) => dispatch({type: SET_TITLE, payload: title})
+const mapProps = (poster: any) => ({ poster: poster.rootReducer.poster });
+const mapDispatch = (dispatch: any) => ({
+     setImage: (image: any, path: string) => dispatch({ type: SET_IMAGE, payload: image, path: path }),
+     setLogo: (logo: any, path: string) => dispatch({ type: SET_LOGO, payload: logo, path: path }),
+     setMessage: (message: string) => dispatch({ type: SET_MESSAGE, payload: message }),
+     setSize: (scale: number) => dispatch({ type: POSTER_SCALE, payload: scale }),
+     setTitle: (title: string) => dispatch({ type: SET_TITLE, payload: title })
 });
 
 export default connect(mapProps, mapDispatch)(GeneralCustom);

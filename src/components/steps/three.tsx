@@ -96,7 +96,6 @@ State > {
           const posterElement : any = document.getElementById(elementIds[poster.layoutType]);
           html2canvas(posterElement).then((canvas : any) => {
                canvas.toBlob(blob => {
-                    console.log(blob);
                     const url = URL.createObjectURL(blob);
                     const element : any = document.createElement('a')as HTMLElement;
                     element.href = url;

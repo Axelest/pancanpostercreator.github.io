@@ -10,16 +10,17 @@ import {
      POSTER_CREATE_SUCCESS,
      SCALE_SET,
      TITLE_SET,
-     IMAGE_POSITION_SET
+     IMAGE_POSITION_SET,
+     IMAGE_CROP_SET
 } from '../actions/poster';
-import {IPoster} from '../models/poster';
+import { IPoster } from '../models/poster';
 
-const initPoster = () : IPoster => ({
+const initPoster = (): IPoster => ({
      step: 1,
      type: 'poster message only',
      layoutType: 1,
      language: 'english',
-     message: '',
+     message: 'Place holder',
      createdDate: Date(),
      shareNetwork: '',
      theme: 'pancan-purple',
@@ -29,67 +30,73 @@ const initPoster = () : IPoster => ({
      scale: 1,
      title: '',
      positionX: 0,
-     positionY: 0
+     positionY: 0,
+     backgroundImg: ''
 });
 
-export const posterReducer = (state = initPoster(), action : any) => {
+export const posterReducer = (state = initPoster(), action: any) => {
      switch (action.type) {
           case LAYOUT_SET:
                return {
                     ...state,
                     ...action.payload
-               }
+               };
           case STEP_SET:
                return {
                     ...state,
                     ...action.payload
-               }
+               };
           case LANGUAGE_SET:
                return {
                     ...state,
                     ...action.payload
-               }
+               };
           case THEME_SET:
                return {
                     ...state,
                     ...action.payload
-               }
+               };
           case MESSAGE_SET:
                return {
                     ...state,
                     ...action.payload
-               }
+               };
           case LOGO_SET:
                return {
                     ...state,
                     ...action.payload
-               }
+               };
           case IMAGE_SET:
                return {
                     ...state,
                     ...action.payload
-               }
+               };
           case POSTER_CREATE_SUCCESS:
                return {
                     ...state,
                     ...action.payload
-               }
+               };
           case SCALE_SET:
                return {
                     ...state,
                     ...action.payload
-               }
+               };
           case TITLE_SET:
                return {
                     ...state,
                     ...action.payload
-               }
+               };
           case IMAGE_POSITION_SET:
                return {
                     ...state,
                     ...action.payload
-               }
+               };
+          case IMAGE_CROP_SET:
+               return {
+                    ...state,
+                    ...action.payload
+               };
           default:
                return state;
      }
-}
+};

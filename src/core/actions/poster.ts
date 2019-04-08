@@ -47,43 +47,85 @@ export const SCALE_SET = 'SCALE_SET';
 export const IMAGE_SET_POSITION = 'IMAGE_SET_POSITION';
 export const IMAGE_POSITION_SET = 'IMAGE_POSITION_SET';
 
+/** Image Crop */
+export const IMAGE_CROP = 'IMAGE_CROP';
+export const IMAGE_CROP_SET = 'IMAGE_CROP_SET';
+
 /** Action Handlers */
-export const setLayout = (layout : any) => ({type: LAYOUT_SET, payload: layout});
-export const setLanguage = (language : string) => ({type: LANGUAGE_SET, payload: {
+export const setLayout = (layout: any) => ({
+     type: LAYOUT_SET,
+     payload: layout
+});
+export const setLanguage = (language: string) => ({
+     type: LANGUAGE_SET,
+     payload: {
           language
-     }});
-export const setStep = (step : number) => ({type: STEP_SET, payload: {
+     }
+});
+export const setStep = (step: number) => ({
+     type: STEP_SET,
+     payload: {
           step
-     }});
-export const setTheme = (theme : string) => ({type: THEME_SET, payload: {
+     }
+});
+export const setTheme = (theme: string) => ({
+     type: THEME_SET,
+     payload: {
           theme
-     }})
-export const setImage = (image : string) => ({type: IMAGE_SET, payload: {
+     }
+});
+export const setImage = (image: string) => ({
+     type: IMAGE_SET,
+     payload: {
           image
-     }});
-export const setLogo = (logo : string) => ({type: LOGO_SET, payload: {
+     }
+});
+export const setLogo = (logo: string) => ({
+     type: LOGO_SET,
+     payload: {
           logo
-     }});
-export const setMessage = (message : string) => ({type: MESSAGE_SET, payload: {
+     }
+});
+export const setMessage = (message: string) => ({
+     type: MESSAGE_SET,
+     payload: {
           message
-     }});
-export const setSocial = (type : string) => ({type: SOCIAL_SET, payload: type});
-export const setPoster = (posterImage : any) => ({type: POSTER_CREATE_SUCCESS, payload: {
+     }
+});
+export const setSocial = (type: string) => ({
+     type: SOCIAL_SET,
+     payload: type
+});
+export const setPoster = (posterImage: any) => ({
+     type: POSTER_CREATE_SUCCESS,
+     payload: {
           posterImage
-     }});
+     }
+});
 
-export const setSize = (scale : number) => ({type: SCALE_SET, payload: {
+export const setSize = (scale: number) => ({
+     type: SCALE_SET,
+     payload: {
           scale
-     }});
+     }
+});
 
-export const setTitle = (title : string) => ({type: TITLE_SET, payload: {
+export const setTitle = (title: string) => ({
+     type: TITLE_SET,
+     payload: {
           title
-     }});
+     }
+});
 
-export const setImagePosition = (positionX : number, positionY : number) => ({
+export const setImagePosition = (positionX: number, positionY: number) => ({
      type: IMAGE_POSITION_SET,
      payload: {
           positionX,
           positionY
      }
+});
+
+export const setImageCrop = (backgroundImg: string) => ({
+     type: IMAGE_CROP_SET,
+     payload: { backgroundImg }
 });
