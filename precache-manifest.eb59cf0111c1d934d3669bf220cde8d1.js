@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "83b650dec33ee4ccfc77",
-    "url": "/postercreatorpancan/static/css/main.b4911899.chunk.css"
+    "revision": "87d2e2f07f4f62ef5a88",
+    "url": "/postercreatorpancan/static/css/main.8a3fb3a5.chunk.css"
   },
   {
-    "revision": "83b650dec33ee4ccfc77",
-    "url": "/postercreatorpancan/static/js/main.83b650de.chunk.js"
+    "revision": "87d2e2f07f4f62ef5a88",
+    "url": "/postercreatorpancan/static/js/main.87d2e2f0.chunk.js"
   },
   {
     "revision": "21d57814104ff7feb958",
@@ -60,16 +60,16 @@ self.__precacheManifest = [
     "url": "/postercreatorpancan/static/media/icons.8e3c7f55.eot"
   },
   {
-    "revision": "c5ebe0b32dc1b5cc449a76c4204d13bb",
-    "url": "/postercreatorpancan/static/media/brand-icons.c5ebe0b3.ttf"
+    "revision": "b87b9ba532ace76ae9f6edfe9f72ded2",
+    "url": "/postercreatorpancan/static/media/icons.b87b9ba5.ttf"
   },
   {
     "revision": "13db00b7a34fee4d819ab7f9838cc428",
     "url": "/postercreatorpancan/static/media/brand-icons.13db00b7.eot"
   },
   {
-    "revision": "b87b9ba532ace76ae9f6edfe9f72ded2",
-    "url": "/postercreatorpancan/static/media/icons.b87b9ba5.ttf"
+    "revision": "c5ebe0b32dc1b5cc449a76c4204d13bb",
+    "url": "/postercreatorpancan/static/media/brand-icons.c5ebe0b3.ttf"
   },
   {
     "revision": "82f60bd0b94a1ed68b1e6e309ce2e8c3",
@@ -84,7 +84,7 @@ self.__precacheManifest = [
     "url": "/postercreatorpancan/static/media/brand-icons.a1a749e8.svg"
   },
   {
-    "revision": "7ed82af6428b45f5c2338df8850fe405",
+    "revision": "a16a86c9d6af19f60be6227f080995cf",
     "url": "/postercreatorpancan/index.html"
   }
 ];
