@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "131a5acd7ccb065554e1",
-    "url": "/postercreatorpancan/static/css/main.5374d5f4.chunk.css"
+    "revision": "d7c0f8679057864dc493",
+    "url": "/postercreatorpancan/static/css/main.4aeb259a.chunk.css"
   },
   {
-    "revision": "131a5acd7ccb065554e1",
-    "url": "/postercreatorpancan/static/js/main.131a5acd.chunk.js"
+    "revision": "d7c0f8679057864dc493",
+    "url": "/postercreatorpancan/static/js/main.d7c0f867.chunk.js"
   },
   {
     "revision": "9dc4f471dfa11465b99b",
@@ -28,12 +28,12 @@ self.__precacheManifest = [
     "url": "/postercreatorpancan/static/media/flags.9c74e172.png"
   },
   {
-    "revision": "ef60a4f6c25ef7f39f2d25a748dbecfe",
-    "url": "/postercreatorpancan/static/media/outline-icons.ef60a4f6.woff"
-  },
-  {
     "revision": "cd6c777f1945164224dee082abaea03a",
     "url": "/postercreatorpancan/static/media/outline-icons.cd6c777f.woff2"
+  },
+  {
+    "revision": "ef60a4f6c25ef7f39f2d25a748dbecfe",
+    "url": "/postercreatorpancan/static/media/outline-icons.ef60a4f6.woff"
   },
   {
     "revision": "701ae6abd4719e9c2ada3535a497b341",
@@ -64,12 +64,12 @@ self.__precacheManifest = [
     "url": "/postercreatorpancan/static/media/icons.8e3c7f55.eot"
   },
   {
-    "revision": "13db00b7a34fee4d819ab7f9838cc428",
-    "url": "/postercreatorpancan/static/media/brand-icons.13db00b7.eot"
-  },
-  {
     "revision": "b87b9ba532ace76ae9f6edfe9f72ded2",
     "url": "/postercreatorpancan/static/media/icons.b87b9ba5.ttf"
+  },
+  {
+    "revision": "13db00b7a34fee4d819ab7f9838cc428",
+    "url": "/postercreatorpancan/static/media/brand-icons.13db00b7.eot"
   },
   {
     "revision": "c5ebe0b32dc1b5cc449a76c4204d13bb",
@@ -88,7 +88,7 @@ self.__precacheManifest = [
     "url": "/postercreatorpancan/static/media/brand-icons.a1a749e8.svg"
   },
   {
-    "revision": "ffdb546b1db4c06a2fd499fcebf397ed",
+    "revision": "956b3d07113432d741313617298eee27",
     "url": "/postercreatorpancan/index.html"
   }
 ];
